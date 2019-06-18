@@ -1,0 +1,32 @@
+#wrapper{
+    width: 1000px;
+    margin: auto;
+    padding-top: 10%;
+}
+
+#articles{
+    display: inline-block;
+    overflow: auto;
+    width: 80%;
+    height: 500px;
+}
+
+#notes{
+    float: right;
+    width: 30%;
+}
+
+textarea, input{
+    display: block;
+    width: 100%;
+}
+
+input{
+    height: 40px;
+    font-size: 30px;
+}
+
+textarea{
+    height: 200px;
+    font-size: 20px;
+}
