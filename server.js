@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
 
-mongoose.connect("mongodb://localhost/scraperdb", { useNewUrlParser: true });
+mongoose.connect("mongodb://localhost/scraperassignmentdb", { useNewUrlParser: true });
 
 app.listen(PORT, function(){
     console.log("running on port: " + PORT);
@@ -29,14 +29,16 @@ app.get("/scrape", function(req, res){
             var result = {};
 
             var linkObject = $(this).children("div");
-            var child1 = $(linkObject).children("span");
+            var child1 = $(linkObject).children("div");
             var child2 = $(child1).children("a");
+            var child3 = $(child2).children("div")
+
+            result.title = child3.children("h3").text();
             result.link = child2.attr("href");
-            result.title = child2.children("h2").text();
 
             db.Article.create(result)
                 .then(function(dbArticle){
-                    console.log(dbArticle);
+                    // console.log(dbArticle);
                 })
                 .catch(function(err){
                     console.log(err);
