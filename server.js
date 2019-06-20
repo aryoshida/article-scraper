@@ -28,8 +28,11 @@ app.get("/scrape", function(req, res){
         $("article div").each(function(i, element){
             var result = {};
 
-            result.title = $(this).find("span > a").text()
-            result.link = $(this).find("span > a").attr("href");
+            var linkObject = $(this).children("div");
+            var child1 = $(linkObject).children("span");
+            var child2 = $(child1).children("a");
+            result.link = child2.attr("href");
+            result.title = child2.children("h2").text();
 
             db.Article.create(result)
                 .then(function(dbArticle){
@@ -66,6 +69,17 @@ app.get("/scrape", function(req, res){
 //         res.send("Scrape Completed!!!");
 //     });
 // });
+
+//grabs all articles
+app.get("/articles", function(req, res){
+    db.Article.find({})
+    .then(function(dbArticle){
+        res.json(dbArticle);
+    })
+    .catch(function(err){
+        res.json(err);
+    });
+});
 
 //grabs a specific article
 app.get("/articles/:id", function(req, res){
