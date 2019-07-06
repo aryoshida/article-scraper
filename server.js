@@ -1,11 +1,11 @@
 var express = require("express");
 var logger = require("morgan");
-var mongoose = require("mongoose");
+// var mongoose = require("mongoose");
 
 var axios = require("axios");
 var cheerio = require("cheerio");
 
-var db = require("./models");
+// var db = require("./models");
 var PORT = 3000;
 var app = express();
 var connectionString = "mongodb+srv://root:root@cluster0-ydthz.mongodb.net/test?retryWrites=true&w=majority";
@@ -76,6 +76,7 @@ app.get("/scrape", function(req, res){
     });
 });
 
+/*
 //grabs all articles
 app.get("/articles", function(req, res){
     db.Article.find({})
@@ -112,3 +113,4 @@ app.post("articles/:id", function(req, res){
             res.json(err);
         });
 });
+*/
