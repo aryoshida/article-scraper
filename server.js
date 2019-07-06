@@ -6,7 +6,6 @@ var axios = require("axios");
 var cheerio = require("cheerio");
 
 // var db = require("./models");
-var PORT = 3000;
 var app = express();
 // var connectionString = "mongodb+srv://root:root@cluster0-ydthz.mongodb.net/test?retryWrites=true&w=majority";
 
@@ -17,9 +16,7 @@ app.use(express.static("public"));
 
 // mongoose.connect(connectionString, { useNewUrlParser: true });
 
-app.listen(PORT, function(){
-    console.log("running on port: " + PORT);
-});
+app.listen(process.env.PORT || 3000);
 
 //scrapes articles off of the website
 // app.get("/scrape", function(req, res){
