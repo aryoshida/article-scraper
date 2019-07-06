@@ -1,20 +1,20 @@
 var express = require("express");
 var logger = require("morgan");
-// var mongoose = require("mongoose");
+var mongoose = require("mongoose");
 
 var axios = require("axios");
 var cheerio = require("cheerio");
 
-// var db = require("./models");
+var db = require("./models");
 var app = express();
-// var connectionString = "mongodb+srv://root:root@cluster0-ydthz.mongodb.net/test?retryWrites=true&w=majority";
+var connectionString = "mongodb+srv://root:root@cluster0-ydthz.mongodb.net/test?retryWrites=true&w=majority";
 
 app.use(logger("dev"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
 
-// mongoose.connect(connectionString, { useNewUrlParser: true });
+mongoose.connect(connectionString, { useNewUrlParser: true });
 
 app.listen(process.env.PORT || 3000);
 
