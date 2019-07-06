@@ -8,13 +8,14 @@ var cheerio = require("cheerio");
 var db = require("./models");
 var PORT = 3000;
 var app = express();
+var connectionString = "mongodb+srv://root:root@cluster0-ydthz.mongodb.net/test?retryWrites=true&w=majority";
 
 app.use(logger("dev"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
 
-mongoose.connect("mongodb://localhost/scraperassignmentdb", { useNewUrlParser: true });
+mongoose.connect(connectionString, { useNewUrlParser: true });
 
 app.listen(PORT, function(){
     console.log("running on port: " + PORT);
