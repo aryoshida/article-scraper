@@ -73,7 +73,6 @@ app.get("/scrape", function(req, res){
     });
 });
 
-/*
 //grabs all articles
 app.get("/articles", function(req, res){
     db.Article.find({})
@@ -110,4 +109,3 @@ app.post("articles/:id", function(req, res){
             res.json(err);
         });
 });
-*/
