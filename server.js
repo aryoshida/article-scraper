@@ -15,7 +15,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
 
-mongoose.connect(connectionString, { useNewUrlParser: true });
+// mongoose.connect(connectionString, { useNewUrlParser: true });
 
 app.listen(PORT, function(){
     console.log("running on port: " + PORT);
