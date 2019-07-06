@@ -8,7 +8,7 @@ var cheerio = require("cheerio");
 // var db = require("./models");
 var PORT = 3000;
 var app = express();
-var connectionString = "mongodb+srv://root:root@cluster0-ydthz.mongodb.net/test?retryWrites=true&w=majority";
+// var connectionString = "mongodb+srv://root:root@cluster0-ydthz.mongodb.net/test?retryWrites=true&w=majority";
 
 app.use(logger("dev"));
 app.use(express.urlencoded({ extended: true }));
